@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Company
+{% endblock %}
+
+{% block content %}
+</head>
+<body>
+    <h1>Edit Company: {{ company.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'company_list' %}">Back to Company List</a>
+</body>
+{% endblock %}

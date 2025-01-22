@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add employee
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        form {
+            margin-bottom: 40px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add employee</h1>
+
+    <!-- Form for adding an Employee -->
+    <h2>Add Employee</h2>
+    <form method="POST" >
+        {% csrf_token %}
+        <label for="name">Employee Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="company">Company</label>
+        <select id="company" name="company" required>
+            {% for company in companies %}
+                <option value="{{ company.id }}">{{ company.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="phone_no">Mobile Number</label>
+        <input type="text" id="phone_no" name="phone_no" required>
+
+        <button type="submit">Add Employee</button>
+    </form>
+    {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Customer
+{% endblock %}
+
+{% block content %}
+</head>
+<body>
+    <h1>Edit Customer: {{ customer.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <!-- Example for editing a customer -->
+    
+
+    <!-- Example for editing a measurement -->
+    <!-- <a href="{% url 'edit_kurta_measurement' kurta.id %}">Edit Kurta Measurement</a>
+    <a href="{% url 'edit_blazer_measurement' blazer.id %}">Edit Blazer Measurement</a>
+    <a href="{% url 'edit_pant_measurement' pant.id %}">Edit Pant Measurement</a>
+    <a href="{% url 'edit_shirt_measurement' shirt.id %}">Edit Shirt Measurement</a>
+     -->
+</body>
+{% endblock %}

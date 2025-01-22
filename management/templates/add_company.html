@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add company
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        form {
+            margin-bottom: 40px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Data</h1>
+
+    <!-- Form for adding a Company -->
+    <h2>Add Company</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">Company Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="manager_name">Manager Name</label>
+        <input type="text" id="manager_name" name="manager_name" required>
+
+        <label for="contact_no">Contact Number</label>
+        <input type="text" id="contact_no" name="contact_no" required>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <label for="payment_status">Payment Status</label>
+        <input type="text" id="payment_status" name="payment_status" required>
+
+        <button type="submit">Add Company</button>
+    </form>
+    {% endblock %}
