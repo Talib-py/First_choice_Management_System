@@ -170,7 +170,7 @@ def home(request):
         'total_customers': total_customers,
         'company_details': company_details,
     }
-    return render(request, 'home.html', context)
+    return render(request, 'index.html', context)
 
 # views.py
 from django.shortcuts import render
